@@ -7,12 +7,12 @@
 
 // workspace code
 .to-do-list {
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
     
     header {
         background-color: #de3f53;
-        padding: 15px;
+        padding: 20px;
         color: #fff;
         font-size: 1.3em;
     }
@@ -21,7 +21,8 @@
         li {
             background-color: #697398;
             color: #fff;
-            padding: 10px;
+            font-size: 1.3em;
+            padding: 20px;
             border-bottom: 1px solid black;
             display: flex;
             align-items: center;
@@ -38,8 +39,8 @@
 
             .check {
                 -webkit-appearance: none;
-                height: 20px;
-                width: 20px;
+                height: 25px;
+                width: 25px;
                 background-color: #404a6e;
                 border-radius: 50%;
                 margin-right: 20px;
@@ -62,21 +63,20 @@
                 cursor: pointer;
                 border-radius: 50%;
                 border: none;
-                //outline: none;
                 background-color: #de3f53;
                 position: absolute;
-                top: 27%;
+                top: 35%;
                 right: 10px;
                 opacity: 0;
+                box-shadow: 0 1px 2px black;
                 transition: 400ms ease;
 
-                &::after {
+                &::after { // texto
                     content: 'x';
                     color: white;
                     position: relative;
                     bottom: 7%;
                     right: 1%;
-                    display: block;
                 }
             }
         }
@@ -91,8 +91,8 @@
             border: none;
             outline: none;
             width: 100%;
-            padding: 10px;
-            font-size: 0.8em;
+            padding: 20px;
+            font-size: 1.1em;
             font-family: "Roboto Condensed", Arial, sans-serif;
         }
     }
