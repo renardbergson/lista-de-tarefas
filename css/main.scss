@@ -4,3 +4,96 @@
 
 // other style sheets
 @import 'base.scss';
+
+// workspace code
+.to-do-list {
+    max-width: 400px;
+    width: 100%;
+    
+    header {
+        background-color: #de3f53;
+        padding: 15px;
+        color: #fff;
+        font-size: 1.3em;
+    }
+
+    .list {
+        li {
+            background-color: #697398;
+            color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: 400ms ease;
+
+            &:hover {
+                background-color: #8d99c6;
+            }
+
+            &:hover > button {
+                opacity: 1;
+            }
+
+            .check {
+                -webkit-appearance: none;
+                height: 20px;
+                width: 20px;
+                background-color: #404a6e;
+                border-radius: 50%;
+                margin-right: 20px;
+                cursor: pointer;
+                box-shadow: 0 0 1px black;
+                transition: 200ms;
+
+                &:hover {
+                    background-color: #282f45;
+                }
+
+                &:checked {
+                    background-color: rgb(0, 191, 0);
+                }
+            }
+
+            .remove {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                border-radius: 50%;
+                border: none;
+                //outline: none;
+                background-color: #de3f53;
+                position: absolute;
+                top: 27%;
+                right: 10px;
+                opacity: 0;
+                transition: 400ms ease;
+
+                &::after {
+                    content: 'x';
+                    color: white;
+                    position: relative;
+                    bottom: 7%;
+                    right: 1%;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: #404a6e;
+
+        input {
+            background-color: #404a6e;
+            color: #fff;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 0.8em;
+            font-family: "Roboto Condensed", Arial, sans-serif;
+        }
+    }
+}

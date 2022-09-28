@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
     <title>Lista de Tarefas</title>
 </head>
 <body>
     
-    <div class="workSpace">
+    <div class="to-do-list">
         <header>Lista de Tarefas</header>
 
         <section class="list-wrapper">
             <ul id="list" class="list">
                 <li>
-                    <div class="check"></div>
-                    <span class="task">
+                    <input type="checkbox" class="check">
+                    <!-- <div class="check"></div> -->
+                    <label class="task">
                         Tarefa 1
-                    </span>
+                    </label>
+                    <button class="remove"></button>
+                </li>
+                <li>
+                    <input type="checkbox" class="check">
+                    <!-- <div class="check"></div> -->
+                    <label class="task">
+                        Tarefa 1
+                    </label>
                     <button class="remove"></button>
                 </li>
             </ul>
@@ -28,5 +38,7 @@
         </footer>
     </div>
 
+
+    <script src="js/main.js"></script>
 </body>
 </html>
