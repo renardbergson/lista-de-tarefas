@@ -40,6 +40,9 @@ const Main = {
                 </li>
                 `
                 e.target.value = ''
+
+                this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
+                this.bindEvents()   // that it adds all the LI's again and the new one, but without our class reference, so add it again
             }
         }
     }
