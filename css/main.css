@@ -22,7 +22,7 @@ body {
     transform: scale(0, 0);
   }
   50% {
-    transform: scale(1.5, 1.5);
+    transform: scale(1, 1);
   }
   100% {
     transform: scale(0, 0);
@@ -34,7 +34,7 @@ body {
     transform: scale(0, 0);
   }
   50% {
-    transform: scale(1.5, 1.5);
+    transform: scale(1, 1);
   }
   100% {
     transform: scale(0, 0);
@@ -43,6 +43,8 @@ body {
 .to-do-list {
   max-width: 600px;
   width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .to-do-list header {
   background-color: #de3f53;
@@ -82,13 +84,11 @@ body {
   background-color: #282f45;
 }
 .to-do-list .list li .check:checked {
-  background-color: lime;
   -webkit-animation: input-checkbox 400ms linear;
           animation: input-checkbox 400ms linear;
 }
 .to-do-list .list li .check:checked::after {
   opacity: 1;
-  transform: rotate(0deg);
 }
 .to-do-list .list li .check::after {
   content: "";
@@ -97,9 +97,11 @@ body {
   height: 100%;
   display: block;
   background-size: cover;
-  transform: rotate(-45deg);
-  transition: 400ms cubic-bezier(0, 0.01, 0, 4);
+  transition: 400ms cubic-bezier(0, 0.01, 0, 2);
   opacity: 0;
+}
+.to-do-list .list li .taskDone {
+  text-decoration: line-through;
 }
 .to-do-list .list li .remove {
   width: 20px;

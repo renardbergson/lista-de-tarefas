@@ -6,15 +6,18 @@ const Main = {
     },
 
     cacheSelectors: function () { // this property will select the html elements 
-        this.checkButtons = document.querySelectorAll('.check') // we use "this"to make the element usable by the other functions
+        this.$checkButtons = document.querySelectorAll('.check') // we use "this"to make the element usable by the other functions
     },
 
     bindEvents: function () { // this property will call (connect) the events
-        this.checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
+        this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
     },
 
     events: { // inside this property we will have the events
-        checkButtonClick: () => {alert('testing!')}
+        checkButtonClick: (e) => {
+            const $task = e.target.nextElementSibling
+            $task.classList.toggle('taskDone')
+        }
     }
 }
 
