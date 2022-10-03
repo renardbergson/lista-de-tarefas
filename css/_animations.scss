@@ -11,3 +11,12 @@
         transform: scale(0, 0);
     }
 }
+
+@keyframes collapseItem {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-90deg);
+    }
+}

@@ -9,11 +9,13 @@ const Main = {
         this.$checkButtons = document.querySelectorAll('.check') // we use "this"to make the element usable by the other functions
         this.$inputTask = document.querySelector('#inputTask')
         this.$list = document.querySelector('#list')
+        this.$removeTaskButtons = document.querySelectorAll('.remove')
     },
 
     bindEvents: function () { // this property will call (connect) the events
         this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
+        this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask})
     },
 
     events: { // inside this property we will have the events
@@ -44,6 +46,15 @@ const Main = {
                 this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
                 this.bindEvents()   // that it adds all the LI's again and the new one, but without our class reference, so add it again
             }
+        },
+
+        removeTask: (e) => {
+            const li = e.target.parentElement
+            li.classList.add('removed')
+            
+            setTimeout(() => {
+                li.remove() // the remove method removes an element from the document
+            }, 300) // only after 300ms we'll delete the item, this time is defined in the element animation
         }
     }
 }

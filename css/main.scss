@@ -40,6 +40,10 @@
                 opacity: 1;
             }
 
+            &.removed {
+                animation: collapseItem 300ms ease;
+            }
+
             .check {
                 -webkit-appearance: none;
                 height: 25px;

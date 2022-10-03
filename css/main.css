@@ -40,6 +40,22 @@ body {
     transform: scale(0, 0);
   }
 }
+@-webkit-keyframes collapseItem {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+@keyframes collapseItem {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
 .to-do-list {
   max-width: 600px;
   width: 100%;
@@ -68,6 +84,10 @@ body {
 }
 .to-do-list .list li:hover > button {
   opacity: 1;
+}
+.to-do-list .list li.removed {
+  -webkit-animation: collapseItem 300ms ease;
+          animation: collapseItem 300ms ease;
 }
 .to-do-list .list li .check {
   -webkit-appearance: none;
