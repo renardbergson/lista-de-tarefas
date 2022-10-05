@@ -22,6 +22,8 @@ const Main = {
         checkButtonClick: (e) => {
             const $task = e.target.nextElementSibling
             $task.classList.toggle('taskDone')
+            
+            e.target.classList.toggle('checked')
         },
 
         inputTask_keypress: function (e) {
