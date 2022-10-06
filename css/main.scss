@@ -65,6 +65,10 @@
                     background-size: cover;
                 }
 
+                &.animated {
+                    animation: input-checkbox 200ms ease;
+                }
+
             }
 
             .taskDone {

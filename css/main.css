@@ -18,26 +18,20 @@ body {
 }
 
 @-webkit-keyframes input-checkbox {
-  0% {
-    transform: scale(0, 0);
-  }
   50% {
-    transform: scale(1, 1);
+    transform: scale(1.2, 1.2);
   }
   100% {
-    transform: scale(0, 0);
+    transform: scale(1, 1);
   }
 }
 
 @keyframes input-checkbox {
-  0% {
-    transform: scale(0, 0);
-  }
   50% {
-    transform: scale(1, 1);
+    transform: scale(1.2, 1.2);
   }
   100% {
-    transform: scale(0, 0);
+    transform: scale(1, 1);
   }
 }
 @-webkit-keyframes collapseItem {
@@ -106,6 +100,10 @@ body {
 .to-do-list .list li .check.checked {
   background-image: url(../img/check-circle.svg);
   background-size: cover;
+}
+.to-do-list .list li .check.animated {
+  -webkit-animation: input-checkbox 200ms ease;
+          animation: input-checkbox 200ms ease;
 }
 .to-do-list .list li .taskDone {
   text-decoration: line-through;

@@ -24,6 +24,12 @@ const Main = {
             $task.classList.toggle('taskDone')
             
             e.target.classList.toggle('checked')
+
+            e.target.classList.add('animated')
+            
+            setTimeout(() => {
+                e.target.classList.remove('animated')
+            }, 200)
         },
 
         inputTask_keypress: function (e) {
