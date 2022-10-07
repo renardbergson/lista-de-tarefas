@@ -33,12 +33,10 @@ const Main = {
         },
 
         inputTask_keypress: function (e) {
-            console.log(this)
-
             const key = e.key
             const value = e.target.value
 
-            if (key === 'Enter') {
+            if (key === 'Enter' && this.$inputTask.value != '') {
                 this.$list.innerHTML += `
                 <li>
                     <input type="checkbox" class="check">
