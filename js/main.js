@@ -26,14 +26,19 @@ const Main = {
 
     getStoraged: function () { // here we get and convert the saved taskes in the local storage 
         const _tasks = localStorage.getItem('tasks')
-        this.tasks = JSON.parse(_tasks)
+
+        if (_tasks) {
+            this.tasks = JSON.parse(_tasks) // if there's a key called 'tasks', feed our array with it
+        } else {
+            localStorage.setItem('tasks', JSON.stringify([])) // if there isn't a key called 'tasks', save that key with an empty array
+        }
     },
 
     buildTasks: function () { // here we build an html with the saved tasks that were pushed into our array
         let html = ''
 
         this.tasks.forEach(key => {
-            html = `
+            html += `
                 <li>
                     <input type="checkbox" class="check">
                     <label class="task">
@@ -81,8 +86,13 @@ const Main = {
                 this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
                 this.bindEvents()   // that it adds all the LI's again and the new one, but without our class reference, so add it again
 
-                const taskObj = [ // here we set the model of our tasks object
-                    { task: value },
+                const savedTasks = localStorage.getItem('tasks')
+                const savedTasksObj = JSON.parse(savedTasks)
+
+
+                const taskObj = [ // here we set the model of our tasks object:
+                    ...savedTasksObj, // 1 - the storaged tasks
+                    { task: value }, // 2 - new tasks                       *this is the spread operator*
                 ]
                 
                 localStorage.setItem('tasks', JSON.stringify(taskObj)) // here we save the new tasks into the local storage as json
