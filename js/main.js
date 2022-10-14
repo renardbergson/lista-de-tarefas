@@ -2,11 +2,11 @@ const Main = {
     tasks: [], // this is the array that is gonna get the storaged and new tasks
 
     // ==================================== INIT ============ CACHE =========== BIND =============================================
-    init: function () { // this property will call the other ones
-        this.cacheSelectors() // we use "this" to say that an element is inside the principal element
-        this.bindEvents()
-        this.getStoraged()
-        this.buildTasks()
+    init: function () { // this method will call the other ones
+        this.cacheSelectors() 
+        this.bindEvents()     
+        this.getStoraged()    // we use "this" to say that an element is inside the principal element 
+        this.buildTasks()     // // and make it visible to the other methods
         //console.log(this.tasks)
     },
 
@@ -17,7 +17,7 @@ const Main = {
         this.$removeTaskButtons = document.querySelectorAll('.remove')
     },
 
-    bindEvents: function () { // this property will call (connect) the events
+    bindEvents: function () { // this method will call (connect) the events method
         this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
         this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask})
@@ -50,10 +50,13 @@ const Main = {
         })
 
         this.$list.innerHTML = html
+
+        this.cacheSelectors()
+        this.bindEvents()
     },
 
     // ====================================================== EVENTS ===========================================================
-    events: { // inside this property we will have the events
+    events: { // inside this method we'll have the events
         checkButtonClick: (e) => {
             const $task = e.target.nextElementSibling
             $task.classList.toggle('taskDone')
@@ -100,7 +103,7 @@ const Main = {
                 this.tasks = tasksArr // we refresh the principal array and
                 localStorage.setItem('tasks', jsonTasks) // refresh the local storage as well but in a json format
 
-                //console.log(this.tasks)
+                console.log(this.tasks)
             }
         },
 
@@ -110,12 +113,12 @@ const Main = {
             
             setTimeout(() => {
                 li.remove() // the remove method removes an element from the document
-            }, 300) // only after 300ms we'll delete the item, this time is defined in the element animation
+            }, 300) // only after 300ms we'll do that, this time is defined in the element animation
         }
     }
 }
 
-Main.init() // this part of the code will call the init property
+Main.init() // this part of the code will call the method that calls the other ones
 
 /* 
 1 - inside an event, "this" will always refers to the target element, to solve this, we use the BIND method, that will rebind the 
