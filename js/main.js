@@ -90,12 +90,17 @@ const Main = {
                 const savedTasksObj = JSON.parse(savedTasks)
 
 
-                const taskObj = [ // here we set the model of our tasks object:
-                    ...savedTasksObj, // 1 - the storaged tasks
-                    { task: value }, // 2 - new tasks                       *this is the spread operator*
+                const tasksArr = [ // here we set the model of our tasks object:
+                    ...savedTasksObj, // 1 - the storaged tasks             *this is the spread operator*
+                    { task: value }, // 2 - new tasks                       
                 ]
+
+                const jsonTasks = JSON.stringify(tasksArr) // here we convert the whole tasks array to json
                 
-                localStorage.setItem('tasks', JSON.stringify(taskObj)) // here we save the new tasks into the local storage as json
+                this.tasks = tasksArr // we refresh the principal array and
+                localStorage.setItem('tasks', jsonTasks) // refresh the local storage as well but in a json format
+
+                //console.log(this.tasks)
             }
         },
 
