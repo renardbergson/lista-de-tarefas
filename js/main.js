@@ -1,8 +1,13 @@
 const Main = {
+    tasks: [], // this is the array that is gonna get the storaged and new tasks
 
+    // ==================================== INIT ============ CACHE =========== BIND =============================================
     init: function () { // this property will call the other ones
         this.cacheSelectors() // we use "this" to say that an element is inside the principal element
-        this.bindEvents()  
+        this.bindEvents()
+        this.getStoraged()
+        this.buildTasks()
+        //console.log(this.tasks)
     },
 
     cacheSelectors: function () { // this property will select the html elements 
@@ -17,7 +22,32 @@ const Main = {
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
         this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask})
     },
+    // =========================================================================================================================
 
+    getStoraged: function () { // here we get and convert the saved taskes in the local storage 
+        const _tasks = localStorage.getItem('tasks')
+        this.tasks = JSON.parse(_tasks)
+    },
+
+    buildTasks: function () { // here we build an html with the saved tasks that were pushed into our array
+        let html = ''
+
+        this.tasks.forEach(key => {
+            html = `
+                <li>
+                    <input type="checkbox" class="check">
+                    <label class="task">
+                        ${key.task}
+                    </label>
+                    <button class="remove"></button>
+                </li>
+        `
+        })
+
+        this.$list.innerHTML = html
+    },
+
+    // ====================================================== EVENTS ===========================================================
     events: { // inside this property we will have the events
         checkButtonClick: (e) => {
             const $task = e.target.nextElementSibling
@@ -38,19 +68,24 @@ const Main = {
 
             if (key === 'Enter' && this.$inputTask.value != '') {
                 this.$list.innerHTML += `
-                <li>
-                    <input type="checkbox" class="check">
-                    <!-- <div class="check"></div> -->
-                    <label class="task">
-                        ${value}
-                    </label>
-                    <button class="remove"></button>
-                </li>
+                    <li>
+                        <input type="checkbox" class="check">
+                        <label class="task">
+                            ${value}
+                        </label>
+                        <button class="remove"></button>
+                    </li>
                 `
                 e.target.value = ''
 
                 this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
                 this.bindEvents()   // that it adds all the LI's again and the new one, but without our class reference, so add it again
+
+                const taskObj = [ // here we set the model of our tasks object
+                    { task: value },
+                ]
+                
+                localStorage.setItem('tasks', JSON.stringify(taskObj)) // here we save the new tasks into the local storage as json
             }
         },
 
