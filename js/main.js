@@ -7,7 +7,7 @@ const Main = {
         this.bindEvents()     
         this.getStoraged()    // we use "this" to say that an element is inside the principal element 
         this.buildTasks()     // // and make it visible to the other methods
-        //console.log(this.tasks)
+        console.log(this.tasks)
     },
 
     cacheSelectors: function () { // this property will select the html elements 
@@ -20,7 +20,7 @@ const Main = {
     bindEvents: function () { // this method will call (connect) the events method
         this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
-        this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask})
+        this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask.bind(this)})
     },
     // =========================================================================================================================
 
@@ -44,9 +44,9 @@ const Main = {
                     <label class="task">
                         ${key.task}
                     </label>
-                    <button class="remove"></button>
+                    <button class="remove" data-banana="${key.task}"></button>
                 </li>
-        `
+        ` // we're inserting a parameter with any ID, it receives the label value
         })
 
         this.$list.innerHTML = html
@@ -81,9 +81,9 @@ const Main = {
                         <label class="task">
                             ${value}
                         </label>
-                        <button class="remove"></button>
+                        <button class="remove" data-banana="${value}"></button> 
                     </li>
-                `
+                ` // we're inserting a parameter with any ID, it receives the label value
                 e.target.value = ''
 
                 this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
@@ -103,17 +103,27 @@ const Main = {
                 this.tasks = tasksArr // we refresh the principal array and
                 localStorage.setItem('tasks', jsonTasks) // refresh the local storage as well but in a json format
 
-                console.log(this.tasks)
+                //console.log(this.tasks)
             }
         },
 
-        removeTask: (e) => {
+        removeTask: function (e) {
             const li = e.target.parentElement
-            li.classList.add('removed')
+            const value = e.target.dataset['banana']
             
+            // =============================== removing the task from the screen ===============================
+            li.classList.add('removed')
+
             setTimeout(() => {
-                li.remove() // the remove method removes an element from the document
-            }, 300) // only after 300ms we'll do that, this time is defined in the element animation
+                li.remove()                 // the remove method removes an element from the document
+            }, 300)                         // only after 300ms we'll do that, this time is defined in the element animation
+
+            // ============================ removing the task from the local storage ==========================
+            const newTasksState = this.tasks.filter(key  => key.task != value)
+            localStorage.setItem('tasks', JSON.stringify(newTasksState))                // we refresh the local storage
+            this.tasks = newTasksState                                                  // and our array as well
+            
+            console.log(this.tasks)
         }
     }
 }
