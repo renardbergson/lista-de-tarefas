@@ -34,19 +34,23 @@ const Main = {
         }
     },
 
+    buildTaskHtml: function (task) {
+        return `
+            <li>
+                <input type="checkbox" class="check">
+                <label class="task">
+                    ${task}
+                </label>
+                <button class="remove" data-banana="${task}"></button>
+            </li>
+        ` // we're inserting a parameter with any ID, it receives the label value
+    },
+
     buildTasks: function () { // here we build an html with the saved tasks that were pushed into our array
         let html = ''
 
         this.tasks.forEach(key => {
-            html += `
-                <li>
-                    <input type="checkbox" class="check">
-                    <label class="task">
-                        ${key.task}
-                    </label>
-                    <button class="remove" data-banana="${key.task}"></button>
-                </li>
-        ` // we're inserting a parameter with any ID, it receives the label value
+            html += this.buildTaskHtml(key.task)
         })
 
         this.$list.innerHTML = html
@@ -75,15 +79,8 @@ const Main = {
             const value = e.target.value
 
             if (key === 'Enter' && this.$inputTask.value != '') {
-                this.$list.innerHTML += `
-                    <li>
-                        <input type="checkbox" class="check">
-                        <label class="task">
-                            ${value}
-                        </label>
-                        <button class="remove" data-banana="${value}"></button> 
-                    </li>
-                ` // we're inserting a parameter with any ID, it receives the label value
+                this.$list.innerHTML += this.buildTaskHtml(value)
+                
                 e.target.value = ''
 
                 this.cacheSelectors() // we call these functions again because the earlier instruction modifies the DOM, which means
