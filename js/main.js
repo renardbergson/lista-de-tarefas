@@ -7,7 +7,7 @@ const Main = {
         this.bindEvents()     
         this.getStoraged()    // we use "this" to say that an element is inside the principal element 
         this.buildTasks()     // // and make it visible to the other methods
-        console.log(this.tasks)
+        //console.log(this.tasks)
     },
 
     cacheSelectors: function () { // this property will select the html elements 
@@ -18,7 +18,7 @@ const Main = {
     },
 
     bindEvents: function () { // this method will call (connect) the events method
-        this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick})
+        this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick.bind(this)})
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
         this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask.bind(this)})
     },
@@ -61,7 +61,7 @@ const Main = {
 
     // ====================================================== EVENTS ===========================================================
     events: { // inside this method we'll have the events
-        checkButtonClick: (e) => {
+        checkButtonClick: function (e) {
             const $task = e.target.nextElementSibling
             $task.classList.toggle('taskDone')
             
@@ -92,7 +92,7 @@ const Main = {
 
                 const tasksArr = [ // here we set the model of our tasks object:
                     ...savedTasksObj, // 1 - the storaged tasks             *this is the spread operator*
-                    { task: value }, // 2 - new tasks                       
+                    { task: value, done: false }, // 2 - new tasks                       
                 ]
 
                 const jsonTasks = JSON.stringify(tasksArr) // here we convert the whole tasks array to json
@@ -120,7 +120,7 @@ const Main = {
             localStorage.setItem('tasks', JSON.stringify(newTasksState))                // we refresh the local storage
             this.tasks = newTasksState                                                  // and our array as well
             
-            console.log(this.tasks)
+            //console.log(this.tasks)
         }
     }
 }
