@@ -62,16 +62,18 @@ const Main = {
     // ====================================================== EVENTS ===========================================================
     events: { // inside this method we'll have the events
         checkButtonClick: function (e) {
-            const $task = e.target.nextElementSibling
-            $task.classList.toggle('taskDone')
-            
-            e.target.classList.toggle('checked')
+            const $checkbox = e.target
+            $checkbox.classList.toggle('checked')
+            $checkbox.classList.add('animated')
 
-            e.target.classList.add('animated')
+            const $label = e.target.nextElementSibling
+            $label.classList.toggle('taskDone')
             
             setTimeout(() => {
-                e.target.classList.remove('animated')
+                $checkbox.classList.remove('animated')
             }, 200)
+
+            console.log($label)
         },
 
         inputTask_keypress: function (e) {
