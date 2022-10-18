@@ -34,14 +34,14 @@ const Main = {
         }
     },
 
-    buildTaskHtml: function (task) {
+    buildTaskHtml: function (task, isDone) { // here we receive the task and the boolean value for isDone
         return `
-            <li>
+            <li class="${isDone ? 'done' : ''}" data-task="${task}">
                 <input type="checkbox" class="check">
                 <label class="task">
                     ${task}
                 </label>
-                <button class="remove" data-banana="${task}"></button>
+                <button class="remove" data-task="${task}"></button>
             </li>
         ` // we're inserting a parameter with any ID, it receives the label value
     },
@@ -50,7 +50,7 @@ const Main = {
         let html = ''
 
         this.tasks.forEach(key => {
-            html += this.buildTaskHtml(key.task)
+            html += this.buildTaskHtml(key.task, key.done) // here we give the html function the two arguments it needs
         })
 
         this.$list.innerHTML = html
@@ -63,7 +63,18 @@ const Main = {
     events: { // inside this method we'll have the events
         checkButtonClick: function (e) {
             const $li = e.target.parentElement
+            const value = $li.dataset['task']
             const isDone = $li.classList.contains('done')
+
+            const newTasksState = this.tasks.map(item => {
+                if (item.task === value) {
+                    item.done = !isDone // on the first click, isDone starts as "false"
+                }
+                
+                //console.log(isDone)
+                return item // the map method needs a return to know what insert into the array (newTasksState)
+            })
+            localStorage.setItem('tasks', JSON.stringify(newTasksState))
             
             if (!isDone) {
                 return $li.classList.add('done')
@@ -103,7 +114,7 @@ const Main = {
 
         removeTask: function (e) {
             const li = e.target.parentElement
-            const value = e.target.dataset['banana']
+            const value = e.target.dataset['task']
             
             // =============================== removing the task from the screen ===============================
             li.classList.add('removed')
