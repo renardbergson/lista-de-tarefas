@@ -73,6 +73,15 @@ body {
   position: relative;
   transition: 400ms ease;
 }
+.to-do-list .list li.done .check {
+  background-image: url(../img/check-circle.svg);
+  background-size: cover;
+  -webkit-animation: input-checkbox 200ms ease;
+          animation: input-checkbox 200ms ease;
+}
+.to-do-list .list li.done .task {
+  text-decoration: line-through;
+}
 .to-do-list .list li:hover {
   background-color: #8d99c6;
 }
@@ -85,6 +94,8 @@ body {
 }
 .to-do-list .list li .check {
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   height: 25px;
   width: 25px;
   background-color: #404a6e;
@@ -96,17 +107,6 @@ body {
 }
 .to-do-list .list li .check:hover {
   background-color: #282f45;
-}
-.to-do-list .list li .check.checked {
-  background-image: url(../img/check-circle.svg);
-  background-size: cover;
-}
-.to-do-list .list li .check.animated {
-  -webkit-animation: input-checkbox 200ms ease;
-          animation: input-checkbox 200ms ease;
-}
-.to-do-list .list li .taskDone {
-  text-decoration: line-through;
 }
 .to-do-list .list li .remove {
   width: 20px;

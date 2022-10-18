@@ -1,7 +1,7 @@
 const Main = {
     tasks: [], // this is the array that is gonna get the storaged and new tasks
 
-    // ==================================== INIT ============ CACHE =========== BIND =============================================
+    // ======================== INIT ============ CACHE =========== BIND =================================
     init: function () { // this method will call the other ones
         this.cacheSelectors() 
         this.bindEvents()     
@@ -22,7 +22,7 @@ const Main = {
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
         this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask.bind(this)})
     },
-    // =========================================================================================================================
+    // ===================================================================================================
 
     getStoraged: function () { // here we get and convert the saved taskes in the local storage 
         const _tasks = localStorage.getItem('tasks')
@@ -59,21 +59,16 @@ const Main = {
         this.bindEvents()
     },
 
-    // ====================================================== EVENTS ===========================================================
+    // =========================================== EVENTS =================================================
     events: { // inside this method we'll have the events
         checkButtonClick: function (e) {
-            const $checkbox = e.target
-            $checkbox.classList.toggle('checked')
-            $checkbox.classList.add('animated')
-
-            const $label = e.target.nextElementSibling
-            $label.classList.toggle('taskDone')
+            const $li = e.target.parentElement
+            const isDone = $li.classList.contains('done')
             
-            setTimeout(() => {
-                $checkbox.classList.remove('animated')
-            }, 200)
-
-            console.log($label)
+            if (!isDone) {
+                return $li.classList.add('done')
+            }
+            $li.classList.remove('done')
         },
 
         inputTask_keypress: function (e) {
