@@ -12,6 +12,7 @@ const Main = {
     },
 
     cacheSelectors: function () { // this property will select the html elements 
+        this.$checkbox = document.querySelector('.checkbox')
         this.$listWrapper = document.querySelector('.list-wrapper')
         this.$checkButtons = document.querySelectorAll('.check') // we use "this"to make the element usable by the other functions
         this.$inputTask = document.querySelector('#inputTask')
@@ -20,6 +21,7 @@ const Main = {
     },
 
     bindEvents: function () { // this method will call (connect) the events method
+        this.$checkbox.onchange = this.events.showRemoveTaskBtns.bind(this)
         this.$checkButtons.forEach((input) => {input.onclick = this.events.checkButtonClick.bind(this)})
         this.$inputTask.onkeypress = this.events.inputTask_keypress.bind(this)
         this.$removeTaskButtons.forEach((button) => {button.onclick = this.events.removeTask.bind(this)})
@@ -140,6 +142,13 @@ const Main = {
             const newTasksState = this.tasks.filter(key  => key.task != value)
             localStorage.setItem('tasks', JSON.stringify(newTasksState))                // we refresh the local storage
             this.tasks = newTasksState                                                  // and our array as well
+        },
+
+        showRemoveTaskBtns: function () {
+            if (this.$checkbox.checked) {
+                return this.$removeTaskButtons.forEach(item => item.style.opacity = '1')
+            }
+            this.$removeTaskButtons.forEach(item => item.style.opacity = '0')
         }
     }
 }
