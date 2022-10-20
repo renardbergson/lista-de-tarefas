@@ -11,10 +11,6 @@ body {
   background-color: lightgray;
   font-family: "Roboto Condensed", Arial, sans-serif;
   font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 @-webkit-keyframes input-checkbox {
@@ -55,6 +51,10 @@ body {
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .to-do-list header {
   background-color: #de3f53;
@@ -62,7 +62,18 @@ body {
   color: #fff;
   font-size: 1.3em;
 }
-.to-do-list .list li {
+.to-do-list .list-wrapper {
+  max-height: 16.5em;
+  overflow: auto;
+}
+.to-do-list .list-wrapper::-webkit-scrollbar {
+  background-color: #404a6e;
+  width: 4px;
+}
+.to-do-list .list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #de3f53;
+}
+.to-do-list .list-wrapper .list li {
   background-color: #697398;
   color: #fff;
   font-size: 1.3em;
@@ -73,26 +84,26 @@ body {
   position: relative;
   transition: 400ms ease;
 }
-.to-do-list .list li.done .check {
+.to-do-list .list-wrapper .list li.done .check {
   background-image: url(../img/check-circle.svg);
   background-size: cover;
   -webkit-animation: input-checkbox 200ms ease;
           animation: input-checkbox 200ms ease;
 }
-.to-do-list .list li.done .task {
+.to-do-list .list-wrapper .list li.done .task {
   text-decoration: line-through;
 }
-.to-do-list .list li:hover {
+.to-do-list .list-wrapper .list li:hover {
   background-color: #8d99c6;
 }
-.to-do-list .list li:hover > button {
+.to-do-list .list-wrapper .list li:hover > button {
   opacity: 1;
 }
-.to-do-list .list li.removed {
+.to-do-list .list-wrapper .list li.removed {
   -webkit-animation: collapseItem 300ms ease;
           animation: collapseItem 300ms ease;
 }
-.to-do-list .list li .check {
+.to-do-list .list-wrapper .list li .check {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -105,10 +116,10 @@ body {
   box-shadow: 0 0 1px black;
   transition: 200ms;
 }
-.to-do-list .list li .check:hover {
+.to-do-list .list-wrapper .list li .check:hover {
   background-color: #282f45;
 }
-.to-do-list .list li .remove {
+.to-do-list .list-wrapper .list li .remove {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -122,7 +133,7 @@ body {
   box-shadow: 0 1px 2px black;
   transition: 600ms ease;
 }
-.to-do-list .list li .remove::after {
+.to-do-list .list-wrapper .list li .remove::after {
   content: "x";
   color: white;
   position: relative;

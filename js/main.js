@@ -7,7 +7,6 @@ const Main = {
         this.bindEvents()     
         this.getStoraged()    // we use "this" to say that an element is inside the principal element 
         this.buildTasks()     // // and make it visible to the other methods
-        //console.log(this.tasks)
     },
 
     cacheSelectors: function () { // this property will select the html elements 
@@ -68,10 +67,9 @@ const Main = {
 
             const newTasksState = this.tasks.map(item => {
                 if (item.task === value) {
-                    item.done = !isDone // on the first click, isDone starts as "false"
+                    item.done = !isDone // on the first click, "isDone" starts as "false"
                 }
-                
-                //console.log(isDone)
+
                 return item // the map method needs a return to know what insert into the array (newTasksState)
             })
             localStorage.setItem('tasks', JSON.stringify(newTasksState))
@@ -107,8 +105,6 @@ const Main = {
                 
                 this.tasks = tasksArr // we refresh the principal array and
                 localStorage.setItem('tasks', jsonTasks) // refresh the local storage as well but in a json format
-
-                //console.log(this.tasks)
             }
         },
 
@@ -127,8 +123,6 @@ const Main = {
             const newTasksState = this.tasks.filter(key  => key.task != value)
             localStorage.setItem('tasks', JSON.stringify(newTasksState))                // we refresh the local storage
             this.tasks = newTasksState                                                  // and our array as well
-            
-            //console.log(this.tasks)
         }
     }
 }

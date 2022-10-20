@@ -12,6 +12,10 @@
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
     header {
         background-color: #de3f53;
@@ -20,77 +24,91 @@
         font-size: 1.3em;
     }
 
-    .list {
-        li {
-            background-color: #697398;
-            color: #fff;
-            font-size: 1.3em;
-            padding: 20px;
-            border-bottom: 1px solid black;
-            display: flex;
-            align-items: center;
-            position: relative;
-            transition: 400ms ease;
+    .list-wrapper {
+        max-height: 16.5em;
+        overflow: auto;
 
-            &.done {
-                .check {
-                    background-image: url(../img/check-circle.svg);
-                    background-size: cover;
-                    animation: input-checkbox 200ms ease;
+        &::-webkit-scrollbar {
+            background-color: #404a6e;
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #de3f53;
+        }
+
+        .list {
+            li {
+                background-color: #697398;
+                color: #fff;
+                font-size: 1.3em;
+                padding: 20px;
+                border-bottom: 1px solid black;
+                display: flex;
+                align-items: center;
+                position: relative;
+                transition: 400ms ease;
+    
+                &.done {
+                    .check {
+                        background-image: url(../img/check-circle.svg);
+                        background-size: cover;
+                        animation: input-checkbox 200ms ease;
+                    }
+                    .task {
+                        text-decoration: line-through;
+                    }
                 }
-                .task {
-                    text-decoration: line-through;
-                }
-            }
-
-            &:hover {
-                background-color: #8d99c6;
-            }
-
-            &:hover > button {
-                opacity: 1;
-            }
-
-            &.removed {
-                animation: collapseItem 300ms ease;
-            }
-
-            .check {
-                appearance: none;
-                height: 25px;
-                width: 25px;
-                background-color: #404a6e;
-                border-radius: 50%;
-                margin-right: 20px;
-                cursor: pointer;
-                box-shadow: 0 0 1px black;
-                transition: 200ms;
-
+    
                 &:hover {
-                    background-color: #282f45;
+                    background-color: #8d99c6;
                 }
-            }
-
-            .remove {
-                width: 20px;
-                height: 20px;
-                cursor: pointer;
-                border-radius: 50%;
-                border: none;
-                background-color: #de3f53;
-                position: absolute;
-                top: 35%;
-                right: 10px;
-                opacity: 0;
-                box-shadow: 0 1px 2px black;
-                transition: 600ms ease;
-
-                &::after { // texto
-                    content: 'x';
-                    color: white;
-                    position: relative;
-                    bottom: 7%;
-                    right: 1%;
+    
+                &:hover > button {
+                    opacity: 1;
+                }
+    
+                &.removed {
+                    animation: collapseItem 300ms ease;
+                }
+    
+                .check {
+                    appearance: none;
+                    height: 25px;
+                    width: 25px;
+                    background-color: #404a6e;
+                    border-radius: 50%;
+                    margin-right: 20px;
+                    cursor: pointer;
+                    box-shadow: 0 0 1px black;
+                    transition: 200ms;
+    
+                    &:hover {
+                        background-color: #282f45;
+                    }
+                }
+    
+                .remove {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    border: none;
+                    background-color: #de3f53;
+                    position: absolute;
+                    top: 35%;
+                    right: 10px;
+                    opacity: 0;
+                    box-shadow: 0 1px 2px black;
+                    transition: 600ms ease;
+    
+                    &::after { // texto
+                        content: 'x';
+                        color: white;
+                        position: relative;
+                        bottom: 7%;
+                        right: 1%;
+                    }
                 }
             }
         }
