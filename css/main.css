@@ -90,7 +90,9 @@ body {
         background-color: #fff;
         box-shadow: 0 1px 2px black;
         cursor: pointer;
-        display: none; }
+        visibility: hidden;
+        opacity: 0;
+        transition: 300ms ease; }
         .to-do-list .list-wrapper .list li .remove i {
           position: relative;
           top: 0.25em;

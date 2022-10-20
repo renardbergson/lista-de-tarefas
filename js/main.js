@@ -156,9 +156,15 @@ const Main = {
             const buttons = this.$removeTaskButtons
 
             if (this.$checkbox.checked) {
-                return buttons.forEach(item => item.style.display = 'block')
+                return buttons.forEach(item => {
+                    item.style.visibility = 'visible'
+                    item.style.opacity = '1'
+                })
             }
-            buttons.forEach(item => item.style.display = 'none')
+            buttons.forEach(item => {
+                item.style.visibility = 'hidden'
+                item.style.opacity = '0'
+            })
         }
     }
 }
