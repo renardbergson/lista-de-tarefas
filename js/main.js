@@ -153,10 +153,12 @@ const Main = {
         },
 
         showRemoveTaskBtns: function () {
+            const buttons = this.$removeTaskButtons
+
             if (this.$checkbox.checked) {
-                return this.$removeTaskButtons.forEach(item => item.style.display = 'block')
+                return buttons.forEach(item => item.style.display = 'block')
             }
-            this.$removeTaskButtons.forEach(item => item.style.display = 'none')
+            buttons.forEach(item => item.style.display = 'none')
         }
     }
 }

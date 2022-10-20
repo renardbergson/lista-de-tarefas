@@ -17,7 +17,7 @@ body {
   100% {
     transform: rotateX(-90deg); } }
 .to-do-list {
-  max-width: 600px;
+  max-width: 38em;
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
@@ -86,14 +86,14 @@ body {
         border-radius: 50%;
         border: none;
         top: 35%;
-        right: 2%;
+        right: 3%;
         background-color: #fff;
         box-shadow: 0 1px 2px black;
         cursor: pointer;
         display: none; }
         .to-do-list .list-wrapper .list li .remove i {
           position: relative;
-          top: 0.15em;
+          top: 0.25em;
           color: #404a6e; }
         .to-do-list .list-wrapper .list li .remove::after {
           content: 'X';
