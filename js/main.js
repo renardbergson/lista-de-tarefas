@@ -7,9 +7,12 @@ const Main = {
         this.bindEvents()     
         this.getStoraged()    // we use "this" to say that an element is inside the principal element 
         this.buildTasks()     // // and make it visible to the other methods
+        this.saveScrollPosition()
+        this.getScrollPosition()
     },
 
     cacheSelectors: function () { // this property will select the html elements 
+        this.$listWrapper = document.querySelector('.list-wrapper')
         this.$checkButtons = document.querySelectorAll('.check') // we use "this"to make the element usable by the other functions
         this.$inputTask = document.querySelector('#inputTask')
         this.$list = document.querySelector('#list')
@@ -56,6 +59,20 @@ const Main = {
 
         this.cacheSelectors()
         this.bindEvents()
+    },
+
+    saveScrollPosition: function () {
+        const item = this.$listWrapper
+
+        item.addEventListener('scroll', () => {
+            sessionStorage.setItem('listScrollPosition', item.scrollTop)
+        })
+    },
+
+    getScrollPosition: function () {
+        const item = this.$listWrapper
+
+        item.scrollTop = sessionStorage.getItem('listScrollPosition')
     },
 
     // =========================================== EVENTS =================================================
