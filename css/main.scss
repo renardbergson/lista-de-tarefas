@@ -72,7 +72,7 @@
                     .check {
                         background-image: url(../img/check-circle.svg);
                         background-size: cover;
-                        animation: input-checkbox 200ms ease;
+                        //animation: input-checkbox 200ms ease;
                     }
                     .task {
                         text-decoration: line-through;
@@ -118,7 +118,7 @@
 
                     i {
                         position: relative;
-                        top: 0.2em;
+                        top: 0.15em;
                         color: #404a6e;
                     }
     

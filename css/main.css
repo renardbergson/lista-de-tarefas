@@ -11,11 +11,6 @@ body {
   font-family: "Roboto Condensed", Arial, sans-serif;
   font-size: 16px; }
 
-@keyframes input-checkbox {
-  50% {
-    transform: scale(1.2, 1.2); }
-  100% {
-    transform: scale(1, 1); } }
 @keyframes collapseItem {
   0% {
     transform: rotateX(0deg); }
@@ -65,8 +60,7 @@ body {
       transition: 400ms ease; }
       .to-do-list .list-wrapper .list li.done .check {
         background-image: url(../img/check-circle.svg);
-        background-size: cover;
-        animation: input-checkbox 200ms ease; }
+        background-size: cover; }
       .to-do-list .list-wrapper .list li.done .task {
         text-decoration: line-through; }
       .to-do-list .list-wrapper .list li:hover {
@@ -99,7 +93,7 @@ body {
         display: none; }
         .to-do-list .list-wrapper .list li .remove i {
           position: relative;
-          top: 0.2em;
+          top: 0.15em;
           color: #404a6e; }
         .to-do-list .list-wrapper .list li .remove::after {
           content: 'X';

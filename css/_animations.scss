@@ -1,13 +1,3 @@
-@keyframes input-checkbox {
-    50% {
-        transform: scale(1.2, 1.2);
-    }
-
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
 @keyframes collapseItem {
     0% {
         transform: rotateX(0deg);

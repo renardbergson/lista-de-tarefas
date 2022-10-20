@@ -85,6 +85,11 @@ const Main = {
             const $li = e.target.parentElement
             const value = $li.dataset['task']
             const isDone = $li.classList.contains('done')
+            
+            e.target.style.transform = "scale(1.2)";
+            setTimeout(() => {
+                e.target.style.transform = "scale(1)";
+            }, 100)
 
             const newTasksState = this.tasks.map(item => {
                 if (item.task === value) {
@@ -94,6 +99,7 @@ const Main = {
                 return item // the map method needs a return to know what insert into the array (newTasksState)
             })
             localStorage.setItem('tasks', JSON.stringify(newTasksState))
+
             
             if (!isDone) {
                 return $li.classList.add('done')
