@@ -45,7 +45,9 @@ const Main = {
                 <label class="task">
                     ${task}
                 </label>
-                <button class="remove" data-task="${task}"></button>
+                <button class="remove" data-task="${task}">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
             </li>
         ` // we're inserting a parameter with any ID, it receives the label value
     },
@@ -146,9 +148,9 @@ const Main = {
 
         showRemoveTaskBtns: function () {
             if (this.$checkbox.checked) {
-                return this.$removeTaskButtons.forEach(item => item.style.opacity = '1')
+                return this.$removeTaskButtons.forEach(item => item.style.display = 'block')
             }
-            this.$removeTaskButtons.forEach(item => item.style.opacity = '0')
+            this.$removeTaskButtons.forEach(item => item.style.display = 'none')
         }
     }
 }

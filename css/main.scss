@@ -104,25 +104,30 @@
                 }
     
                 .remove {
+                    position: absolute;
                     width: 20px;
                     height: 20px;
-                    cursor: pointer;
                     border-radius: 50%;
                     border: none;
-                    background-color: #de3f53;
-                    position: absolute;
                     top: 35%;
-                    right: 10px;
-                    opacity: 0;
+                    right: 2%;
+                    background-color: #fff;
                     box-shadow: 0 1px 2px black;
-                    transition: 600ms ease;
-    
-                    &::after { // texto
-                        content: 'x';
-                        color: white;
+                    cursor: pointer;
+                    display: none;
+
+                    i {
                         position: relative;
-                        bottom: 7%;
-                        right: 1%;
+                        top: 0.2em;
+                        color: #404a6e;
+                    }
+    
+                    &::after {
+                        content: 'X';
+                        position: relative;
+                        bottom: 0.8em;
+                        font-size: 1.5em;
+                        opacity: 0;
                     }
                 }
             }
