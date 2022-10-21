@@ -4,7 +4,7 @@
 Esta é uma lista de tarefas que armazena os dados inseridos pelo usuário no local storage do navegador e depois os recupera, permitindo que não só o seu conteúdo mas também os seus status (feito ou não) permaneçam, mesmo se o usuário fechar o browser.
 
 ### Objetivos
-Desenvolvi este projeto com o intuito de continuar avançando no aprendizado do JavaScript e também porque sabia que nele seria preciso aplicar conceitos um poucos mais avançados, como <i>filter</i>, <i>map</i> e JSON.
+Desenvolvi este projeto com o intuito de continuar avançando no aprendizado do JavaScript e também porque sabia que nele seria preciso aplicar conceitos um poucos mais avançados, como <i>filter</i>, <i>map</i> e JSON e Local Storage.
 
 ### O que aprendi
   •	Uso do “this" no contexto de um objeto <br>
