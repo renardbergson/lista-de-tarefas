@@ -64,25 +64,25 @@
     .list-wrapper {
         max-height: 16.5em;
         overflow-y: scroll;
-        
+
         // custom scrollbar for firefox
         scrollbar-color: #de3f53 #404a6e; 
 
         // *************** MEDIA QUERIES ***************
         @include devices (tablet) {
-            max-height: 22em;
+            max-height: 21.1em;
         }
         @include devices (mobileL) {
-            max-height: 26.4em;
+            max-height: 24.3em;
         }
         @include devices (mobileM) {
-            max-height: 29.3em;
+            max-height: 25.8em;
         }
         @include devices (mobileS) {
-            max-height: 32.9em;
+            max-height: 29em;
         }
         @include devices (galaxyFold) {
-            max-height: 37.6em;
+            max-height: 31.6em;
         }
         // *********************************************
 
@@ -129,18 +129,51 @@
     
                 .check {
                     appearance: none;
-                    height: 25px;
-                    width: 25px;
+                    height: 1.9em;
+                    width: 1.9em;
                     background-color: #404a6e;
                     border-radius: 50%;
                     margin-right: 20px;
                     cursor: pointer;
                     box-shadow: 0 0 1px black;
                     transition: 200ms;
+
+                    // *************** MEDIA QUERIES ***************
+                    @include devices (tablet) {
+                        height: 1.7em;
+                        width: 1.7em;
+                    }
+                    @include devices (mobileL) {
+                        height: 1.5em;
+                        width: 1.5em;
+                    }
+                    @include devices (mobileM) {
+                        height: 1.3em;
+                        width: 1.3em;
+                    }
+                    @include devices (galaxyFold) {
+                        height: 1.1em;
+                        width: 1.1em;
+                    }
+                    // *********************************************
     
                     &:hover {
                         background-color: #282f45;
                     }
+                }
+
+                .task {
+                    // *************** MEDIA QUERIES ***************
+                    @include devices (tablet) {
+                        margin-left: -5px;
+                    }
+                    @include devices (mobileM) {
+                        margin-left: -7px;
+                    }
+                    @include devices (galaxyFold) {
+                        margin-left: -9px;
+                    }
+                    // *********************************************
                 }
     
                 .remove {
