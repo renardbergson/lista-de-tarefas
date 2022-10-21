@@ -5,6 +5,7 @@
 // other style sheets
 @import 'base.scss';
 @import 'animations';
+@import 'breakpoints.scss';
 
 // workspace code
 .to-do-list {
@@ -16,6 +17,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    // *************** MEDIA QUERIES ***************
+    @include devices (mobileL) {
+        width: 37em;
+    }
+    @include devices (mobileM) {
+        width: 36em;
+    }
+    @include devices (mobileS) {
+        width: 34em;
+    }
+    // *********************************************
     
     header {
         background-color: #de3f53;
@@ -35,6 +48,11 @@
             i {
                 font-size: 0.8em;
                 transition: 200ms;
+                // *************** MEDIA QUERIES ***************
+                @include devices (tablet) {
+                    font-size: 1em;
+                }
+                // *********************************************
 
                 &:hover {
                     transform: scale(1.2, 1.2);
@@ -45,8 +63,27 @@
 
     .list-wrapper {
         max-height: 16.5em;
-        overflow: auto;
+        overflow-y: scroll;
 
+        // *************** MEDIA QUERIES ***************
+        @include devices (tablet) {
+            max-height: 22em;
+        }
+        @include devices (mobileL) {
+            max-height: 26.4em;
+        }
+        @include devices (mobileM) {
+            max-height: 29.3em;
+        }
+        @include devices (mobileS) {
+            max-height: 32.9em;
+        }
+        @include devices (galaxyFold) {
+            max-height: 37.6em;
+        }
+        // *********************************************
+
+        // custom scrollbar for chrome and others
         &::-webkit-scrollbar {
             background-color: #404a6e;
             width: 4px;
@@ -60,7 +97,7 @@
             li {
                 background-color: #697398;
                 color: #fff;
-                font-size: 1.3em;
+                font-size: 1.2em;
                 padding: 20px;
                 border-bottom: 1px solid black;
                 display: flex;
