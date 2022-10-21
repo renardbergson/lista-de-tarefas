@@ -222,7 +222,7 @@ body {
       .to-do-list header .settings i:hover {
         transform: scale(1.2, 1.2); }
   .to-do-list .list-wrapper {
-    max-height: 16.5em;
+    max-height: 16.6em;
     overflow-y: scroll;
     scrollbar-color: #de3f53 #404a6e;
     /* **************************   PORTRAIT  ************************** */
@@ -312,19 +312,19 @@ body {
         } */ }
     @media (max-width: 768px) {
       .to-do-list .list-wrapper {
-        max-height: 21.1em; } }
+        max-height: 21.2em; } }
     @media (max-width: 425px) {
       .to-do-list .list-wrapper {
-        max-height: 24.3em; } }
+        max-height: 24.4em; } }
     @media (max-width: 375px) {
       .to-do-list .list-wrapper {
-        max-height: 25.8em; } }
+        max-height: 26em; } }
     @media (max-width: 320px) {
       .to-do-list .list-wrapper {
-        max-height: 29em; } }
+        max-height: 29.2em; } }
     @media (max-width: 280px) {
       .to-do-list .list-wrapper {
-        max-height: 31.6em; } }
+        max-height: 32em; } }
     .to-do-list .list-wrapper::-webkit-scrollbar {
       background-color: #404a6e;
       width: 4px; }

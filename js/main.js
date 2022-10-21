@@ -132,6 +132,12 @@ const Main = {
                 
                 this.tasks = tasksArr // we refresh the principal array and
                 localStorage.setItem('tasks', jsonTasks) // refresh the local storage as well but in a json format
+                
+                this.$checkbox.checked = false
+                this.$removeTaskButtons.forEach(item => {
+                    item.style.visibility = 'hidden'
+                    item.style.opacity = '0'
+                })
             }
         },
 

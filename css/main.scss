@@ -62,7 +62,7 @@
     }
 
     .list-wrapper {
-        max-height: 16.5em;
+        max-height: 16.6em;
         overflow-y: scroll;
 
         // custom scrollbar for firefox
@@ -70,19 +70,19 @@
 
         // *************** MEDIA QUERIES ***************
         @include devices (tablet) {
-            max-height: 21.1em;
+            max-height: 21.2em;
         }
         @include devices (mobileL) {
-            max-height: 24.3em;
+            max-height: 24.4em;
         }
         @include devices (mobileM) {
-            max-height: 25.8em;
+            max-height: 26em;
         }
         @include devices (mobileS) {
-            max-height: 29em;
+            max-height: 29.2em;
         }
         @include devices (galaxyFold) {
-            max-height: 31.6em;
+            max-height: 32em;
         }
         // *********************************************
 
