@@ -15,23 +15,18 @@ body {
 
     // *************** MEDIA QUERIES ***************
     @include devices (tablet) {
-        background-color: rgb(177, 107, 221);
         font-size: 12px;
     }
     @include devices (mobileL) {
-        background-color: rgb(20, 143, 243);
         font-size: 10px;
     }
     @include devices (mobileM) {
-        background-color: rgb(115, 189, 135);
         font-size: 9px;
     }
     @include devices (mobileS) {
-        background-color: darksalmon;
         font-size: 8px;
     }
     @include devices (galaxyFold) {
-        background-color: limegreen;
         font-size: 7px;
     }
     // *********************************************

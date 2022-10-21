@@ -64,6 +64,9 @@
     .list-wrapper {
         max-height: 16.5em;
         overflow-y: scroll;
+        
+        // custom scrollbar for firefox
+        scrollbar-color: #de3f53 #404a6e; 
 
         // *************** MEDIA QUERIES ***************
         @include devices (tablet) {
