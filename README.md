@@ -1,7 +1,7 @@
 # Lista de Tarefas
 
 ### Descrição
-Esta é uma lista de tarefas que armazena as tarefas inseridas pelo usuário no <i>local storage</i> do navegador, permitindo que não só o seu conteúdo mas também os seus status permaneçam, mesmo se o usuário fechar o navegador.
+Esta é uma lista de tarefas que armazena as tarefas inseridas pelo usuário no <i>local storage</i> do navegador e depois as recupera, permitindo que não só o seu conteúdo mas também os seus status permaneçam, mesmo se o usuário fechar o browser.
 
 ### Objetivos
 Desenvolvi este projeto com o intuito de continuar avançando no aprendizado do JavaScript e também porque sabia que nele seria preciso aplicar conceitos um poucos mais avançados, como <i>filter</i>, <i>map</i> e JSON.
@@ -42,9 +42,10 @@ Desenvolvi este projeto com o intuito de continuar avançando no aprendizado do 
 ### Pré requisitos
   •	Um navegador em ambiente desktop ou mobile
   
-### Preview
+### Video Preview
 Este é um pequeno preview da aplicação <br>
 
+https://user-images.githubusercontent.com/97261795/197289637-f1ecd787-167e-4fd8-ad60-431186d24c6d.mov
 
 ### Link
   •	[Lista de Tarefas](https://renardbergson.github.io/lista-de-tarefas/) 
