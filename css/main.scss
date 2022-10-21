@@ -112,7 +112,9 @@
                     .check {
                         background-image: url(../img/check-circle.svg);
                         background-size: cover;
-                        //animation: input-checkbox 200ms ease;
+                        background-repeat: no-repeat;
+                        background-position-y: -0.1px;
+                        background-position-x: 0.1px;
                     }
                     .task {
                         text-decoration: line-through;
@@ -219,7 +221,7 @@
             outline: none;
             width: 100%;
             padding: 20px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             font-family: "Roboto Condensed", Arial, sans-serif;
         }
     }

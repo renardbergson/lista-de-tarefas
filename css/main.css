@@ -342,7 +342,10 @@ body {
       transition: 400ms ease; }
       .to-do-list .list-wrapper .list li.done .check {
         background-image: url(../img/check-circle.svg);
-        background-size: cover; }
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -0.1px;
+        background-position-x: 0.1px; }
       .to-do-list .list-wrapper .list li.done .task {
         text-decoration: line-through; }
       .to-do-list .list-wrapper .list li:hover {
@@ -539,7 +542,7 @@ body {
       outline: none;
       width: 100%;
       padding: 20px;
-      font-size: 1.1em;
+      font-size: 1.2em;
       font-family: "Roboto Condensed", Arial, sans-serif; }
 
 /*# sourceMappingURL=main.css.map */
